@@ -5,7 +5,7 @@ var pippo = new Vue({
     data: {
         salvaResponse: [],
         generi: ['All'],
-        search: '',
+        search: 'All',
     },
     mounted(){
         axios

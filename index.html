@@ -19,9 +19,10 @@
         <!-- v-if="key.genre == genere" -->
         <header>
             <div class="container">
-                <img src="img/logo.png" alt="logo" />
-                <select @change="filterBy" v-model="search" name="" id="">
-                    <option  v-for="genere in generi" :value="genere">
+                <img src="img/logo.png" alt="logo" >
+                
+                <select @change="filterBy" v-model="search" name="">
+                    <option  v-for="genere in generi" :value="genere" >
                             {{ genere }}
                     </option>
                 </select>
