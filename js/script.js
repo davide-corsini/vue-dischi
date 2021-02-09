@@ -3,7 +3,8 @@
 var pippo = new Vue({
     el: '#app',
     data: {
-        salvaResponse: []
+        salvaResponse: [],
+        generi: ['All']
     },
     mounted(){
         axios
@@ -12,7 +13,18 @@ var pippo = new Vue({
             this.salvaResponse = result.data.response;
             console.log(this.salvaResponse);
 
-            
+            this.salvaResponse.forEach(element => {
+                console.log(element.genre);
+                if(!this.generi.includes(element.genre)){
+                    this.generi.push(element.genre)
+                }
+                console.log(this.generi);
+            });
         })
+    },
+    methods: {
+        filtro(){
+            
+        }
     }
 })
