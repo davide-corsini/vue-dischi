@@ -4,13 +4,17 @@ var pippo = new Vue({
     el: '#app',
     data: {
         salvaResponse: [],
-        generi: ['All']
+        generi: ['All'],
+        search: '',
     },
     mounted(){
         axios
         .get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((result) => {
             this.salvaResponse = result.data.response;
+            //questo mi serve per avere array iniziale uguale
+            this.salvaResponseFiltered = result.data.response;
+
             console.log(this.salvaResponse);
 
             this.salvaResponse.forEach(element => {
@@ -23,8 +27,19 @@ var pippo = new Vue({
         })
     },
     methods: {
-        filtro(){
-            
+
+        filterBy(){
+            if(this.search == 'All'){
+                this.salvaResponseFiltered = this.salvaResponse;
+            }else{
+                
+                this.salvaResponseFiltered = this.salvaResponse.filter((element) => {
+                    return element.genre.match(this.search);
+                })
+            }
+
         }
     }
+    
+    
 })
