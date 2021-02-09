@@ -27,9 +27,9 @@
     
         </header>
     
-        <div v-for="key in salvaResponse"  class="cds-container container">
+        <div class="cds-container container">
             <!-- Disco ad esempio -->
-            <div class="cd">
+            <div class="cd"  v-for="key in salvaResponse" >
                 <img :src="key.poster" alt="">
                 <h3>
                     {{key.title}}
