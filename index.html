@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" >
         <header>
             <div class="container">
                 <img src="img/logo.png" alt="logo" />
@@ -23,18 +23,27 @@
                     <option value="">All</option>
                 </select>
             </div>
+            
     
         </header>
     
-        <div class="cds-container container">
+        <div v-for="key in salvaResponse"  class="cds-container container">
             <!-- Disco ad esempio -->
             <div class="cd">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>Ten's Summoners Tales</h3>
-                <span class="author">Sting</span>
-                <span class="year">1993</span>
+                <img :src="key.poster" alt="">
+                <h3>
+                    {{key.title}}
+                </h3>
+                <span class="author">
+                    {{ key.author }}
+                </span>
+                <span class="year">
+                    {{ key.year }}
+                </span>
             </div>
         </div>
+        <p style="color: white">
+        </p>
 
     </div>
 
